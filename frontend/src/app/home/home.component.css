@@ -1,0 +1,16 @@
+.filler {
+    flex: 1 1 auto;
+ }
+ .gap {
+    margin-right: 10px;
+ }
+ marquee{
+    font-family:sans-serif;
+    font-size: 30px;
+    margin-top: 250px;
+    color:rgb(36, 11, 128);
+ /*   width:auto;*/
+
+}
+
+ 

@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider' 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 //import { MaterialModule } from './material.module'
@@ -21,14 +20,20 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
+import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './guards/auth.guard';
+import { JwtHelperService, JwtModule} from '@auth0/angular-jwt';
+import { HomeComponent } from './home/home.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { User } from './model/user.interface';
+import { MatPaginator } from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     LoginComponent,
     RegisterComponent,
+    HomeComponent,
+
     
   ],
   imports: [
@@ -49,10 +54,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatSnackBarModule,
     MatTableModule,
-    MatSlideToggleModule
-    
+    MatAutocompleteModule,
+    MatSlideToggleModule,
+    HttpClientModule,
+   // MatPaginator,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function  tokenGetter() { 
+        return localStorage.getItem('token');
+        } 
+     }
+   })
+  
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthGuard,JwtHelperService],
+
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+
+
+ }

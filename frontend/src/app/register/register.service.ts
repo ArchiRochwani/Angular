@@ -14,7 +14,7 @@ export class RegisterService{
     
         register(email:string,username:string,password:string){
             console.log('hello');
-            return this.http.post<any>('/users',{email,username,password}).pipe(
+            return this.http.post<any>('http://localhost:3000/users',{email,username,password}).pipe(
                 map((token)=>{
                 localStorage.setItem('blog-token',token.access_token);
                 return token;

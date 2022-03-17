@@ -1,45 +1,38 @@
-<head>
-
-</head>
-<body>
-    <div class="container">
-
-    <div>
-      <div class="register">
-      </div>
-  
-      <div>
-        <mat-card>
-          <mat-card-title>Login</mat-card-title>
-          <mat-card-content>
-            <form [formGroup]="form" (ngSubmit)="login()">
-  
-              <mat-form-field>
-                <input type="email" matInput placeholder="Email" formControlName="email">
-                <mat-error *ngIf="email.touched && email.hasError('required')">Email is required</mat-error>
-                <mat-error *ngIf="email.touched && email.hasError('email')">Email must be valid</mat-error>
-              </mat-form-field>
-  
-              <mat-form-field>
-                <input type="password" matInput placeholder="Password" formControlName="password">
-                <mat-error *ngIf="password.touched && password.hasError('required')">Password is required</mat-error>
-              </mat-form-field>
-  
-              <mat-hint *ngIf="!form.valid"><small>Please fill out all needed information</small></mat-hint>
-  
-              <div class="button">
-                <button mat-button type="submit" [disabled]="!form.valid">Login</button>
-              </div>
-  
-            </form>
-            <button [routerLink]="['../register']">Register here</button><br><br>
-            <p>Hint: If you are here for the first time you first need to register a user</p>
-    
-          </mat-card-content>
-        </mat-card>
-
-      </div>
+<div class="form">
+  <mat-icon class="login-icon">account_circle</mat-icon>
+  <div class="form-panel one">
+    <div class="form-header">
+      <h1>Account Login</h1>
+    </div>
+    <div class="form-content">
+      <form [formGroup]="form" (ngSubmit)="login()">
+        <div class="form-group">
+          <mat-icon id="email-icon"> email</mat-icon>
+          <input type="email" matInput placeholder="Email" formControlName="email">
+          <mat-error *ngIf="email.touched && email.hasError('required')" style="position: relative; left: 10px;">Email
+            is required</mat-error>
+          <mat-error *ngIf="email.touched && email.hasError('email')">Email must be valid</mat-error>
+        </div>
+        <div class="form-group">
+          <mat-icon id="password-icon">lock</mat-icon>
+          <input type="password" matInput placeholder="Password" formControlName="password"
+            [type]="hide?'password':'text'" required />
+          <mat-icon class="eye-icon" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}
+          </mat-icon>
+          <mat-error style="position:relative;right:200px" *ngIf="password.touched && password.hasError('required')">
+            Password is required</mat-error>
+        </div>
+        <div class="form-group">
+          <label class="form-remember">
+            <input type="checkbox" />Remember Me
+          </label>
+          <a [routerLink]="['../register']" style="margin:10px; color: cornflowerblue; float:right;"
+            (click)="setData()"> Register here!</a>
+        </div>
+        <div class="form-group">
+          <button type="submit">Log In</button>
+        </div>
+      </form>
     </div>
   </div>
-</body>
-
+</div>

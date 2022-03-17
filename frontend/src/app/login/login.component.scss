@@ -1,44 +1,152 @@
-head{
-  background-color: rgb(197, 231, 245);
-  height:100%;
-
+.app-background{
+  //  position:relative;
+  //  overflow-y: scroll;
+  //  overflow-x:scroll;
+   //top:-14%;
+}
+.form-content{
+ margin-top: -40px;
 }
 
 
-body{
-  background-color: rgb(197, 231, 245);
-  height:100%;
+.form {
+  z-index: 15;
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin: auto 10px;
+  overflow: hidden;
+  width: 421px;
+  height: 340px;
+  position:relative;
+  top:20%;
+  left:35%
+}
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 0 0px;
+}
+.form-group input {
+  outline: none;
+  display: block;
+  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border: 0;
+  border-radius: 30px;
+  box-sizing: border-box;
+  padding: 12px 0px;
+  color: rgba(0, 0, 0, 0.6);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  line-height: inherit;
+  transition: 0.3s ease;
+  padding-left: 50px;
+}
+.form-group input:focus {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.form button {
+  outline: none;
+  background: #4285F4;
+  width: 30%;
+  border: 0;
+  border-radius: 50px;
+  padding: 12px 20px;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 500;
+  line-height: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  left:110px;
+  bottom:0px;
 
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    margin: 0px;
-    min-width: 350px;
-    .register {
-      margin-bottom: 20px;
-      margin-top: 100px;
-    }
+.form-group .form-remember {
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+  left:20px
   
-    mat-card {
-      mat-card-content {
-        form {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-  
-          mat-form-field {
-            width: 100%;
-            min-width: 300px;
-          }
-  
-          .button {
-            display: flex;
-            justify-content: flex-end;
-          }
-        }
-      }
-    }
-  
-  }
+}
+.form-group .form-remember input[type=checkbox] {
+  display: inline-block;
+  width: auto;
+  margin: 0 6px 0 0;
+}
+.form-panel {
+  padding: 10px 40px 30px 40px;
+  box-sizing: border-box;
+}
+
+.form-header h1 {
+  padding: 4px 0;
+  color: #4285F4;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+.pen-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 600px;
+  margin: 20px auto 100px;
+}
+.pen-footer a {
+  color: #FFFFFF;
+  font-size: 12px;
+  text-decoration: none;
+  text-shadow: 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+.pen-footer a .material-icons {
+  width: 12px;
+  margin: 0 5px;
+  vertical-align: middle;
+  font-size: 12px;
+}
+
+.cp-fab {
+  background: #FFFFFF !important;
+  color: #4285F4 !important;
+}
+
+.eye-icon{
+  position: relative;
+  left: 290px;
+  bottom: 35px;
+}
+
+.mat-typography{
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(45deg, rgba(66, 183, 245, 0.8) 0%, rgba(66, 245, 189, 0.4) 100%);
+}
+#email-icon{
+  position: relative;
+  top: 35px;
+  left: 15px;
+  font-size: 20px;
+}
+#password-icon{
+  position: relative;
+  top: 35px;
+  left: 15px;
+  font-size: 20px;
+}
+.login-icon{
+  font-size: 38px;
+  position:relative;
+  left:190px;
+  top:10px;
+  color:#4285F4;
+}

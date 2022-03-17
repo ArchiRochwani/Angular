@@ -14,7 +14,7 @@ export class LoginService{
     
         login(username:string,password:string){
             console.log('hello');
-            return this.http.post<any>('/users',{username,password}).pipe(
+            return this.http.post<any>('http://localhost:3000/users/',{username,password}).pipe(
                 map((token)=>{
                 localStorage.setItem('blog-token',token.access_token);
                 return token;

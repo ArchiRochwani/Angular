@@ -3,7 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { PersonModule } from './person/person.module';
+//import { PersonModule } from './person/person.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 
@@ -13,12 +13,12 @@ import { UserModule } from './user/user.module';
     TypeOrmModule.forRoot(
       {
         type:'mongodb',
-        url:process.env.DATABASE_URL,
+        url:'"mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false"',
         autoLoadEntities:true,
         synchronize:true
       }
     ),MongooseModule,
-    PersonModule, UserModule],
+     UserModule],
   controllers: [AppController],
   providers: [AppService],
 })

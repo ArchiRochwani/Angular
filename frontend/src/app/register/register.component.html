@@ -1,57 +1,58 @@
 
-<body>
-<div class="container">
-
-    <div>
-      <div>
-        <div class="login">
-
-        <mat-card>
-        
-          <mat-card-title>Register</mat-card-title>
-  
-          <mat-card-content>
-            <form [formGroup]="form" (ngSubmit)="register()">
-  
-              <mat-form-field>
-                <input type="email" matInput placeholder="Email" formControlName="email">
-                <mat-error *ngIf="email.touched && email.hasError('required')">Email is required</mat-error>
-                <mat-error *ngIf="email.touched && email.hasError('email')">Email must be valid</mat-error>
-              </mat-form-field>
-  
-              <mat-form-field>
-                <input type="text" matInput placeholder="Username" formControlName="username">
-                <mat-error *ngIf="username.touched && username.hasError('required')">Username is required</mat-error>
-              </mat-form-field>
-  
-              <mat-form-field>
-                <input type="password" matInput placeholder="Password" formControlName="password">
-                <mat-error *ngIf="password.touched && password.hasError('required')">Password is required</mat-error>
-              </mat-form-field>
-  
-              <mat-form-field>
-                <input type="password" matInput placeholder="Password Confirmation" formControlName="passwordConfirm">
-              </mat-form-field>
-  
-              <mat-hint *ngIf="!form.valid"><small>Please fill out all needed information</small></mat-hint>
-              <mat-error *ngIf="passwordConfirm.touched && form.hasError('passwordsNotMatching')"><small>Passwords are not
-                  matching</small></mat-error>
-  
-              <div class="button">
-                <button mat-button type="submit" [disabled]="!form.valid">Register</button>
-              </div>
-  
-            </form>
-          </mat-card-content>
-          <button [routerLink]="['../login']">Go to Login</button>
-
-        </mat-card>
-          </div>
-    
+  <div class="form">
+    <div class="form-panel one">
+      <mat-icon class="register-icon">group_add</mat-icon>
+      <div class="form-header">
+        <h1>Register</h1>
       </div>
+      <div class="form-content">
+        <form [formGroup]="form" (ngSubmit)="register()">
+          <div class="form-group">
+            <mat-icon class="icon"> email</mat-icon>
+            <!-- <label for="email">Email Address</label> -->
+            <input type="email" id="email" name="email" placeholder="Email" formControlName="email" id="email"
+              ng-model="email" [value]="email" autocomplete="username" (input)="user()" required />
+            <mat-error *ngIf="email.touched && email.hasError('required')">Email is required</mat-error>
+            <mat-error *ngIf="email.touched && email.hasError('email')">Email must be valid</mat-error>
+          </div>
+          <div class="form-group">
+            <mat-icon class="icon">face</mat-icon>
+            <!-- <label for="username">Username</label> -->
+            <input type="text" id="username" name="username" placeholder="Username" formControlName="username"
+              id="username" required />
+            <mat-error *ngIf="username.touched && username.hasError('required')">Username is required</mat-error>
+          </div>
+          <div class="form-group password-field">
+            <mat-icon class="icon"> vpn_key</mat-icon>
+            <!-- <label for="password">Password</label> -->
+            <input type="password" id="password" name="password" placeholder="Password" formControlName="password"
+              [type]="!hide?'password':'text'" required>
+            <mat-icon class="viewpassword" matSuffix (click)="hide = !hide" style="text-align: center;">{{hide ?
+              'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngIf="password.touched && password.hasError('required')">Password is required</mat-error>
+            <mat-error *ngIf="password.touched && password.hasError('pattern')">Password must contain one uppercase, one
+              lowercase, one digit and one special character</mat-error>
   
+          </div>
+          <button class="btn"
+          mat-raised-button color="primary" (click)="suggestPassword()">Generate Password</button>
+
+          <div class="form-group">
+            <mat-icon id="con-pass">lock</mat-icon>
+            <!-- <label for="cpassword" style="margin-top: 15px;">Confirm Password</label> -->
+            <input type="password" id="cpassword" name="cpassword" placeholder="Password Confirmation"
+              formControlName="passwordConfirm" required />
   
+            <mat-error *ngIf="passwordConfirm.touched && form.hasError('passwordsNotMatching')"><small>Passwords are not
+                matching</small></mat-error>
+          </div>
+          <mat-hint *ngIf="!form.valid" style="float:right;margin-top:-20px;font-size: 14px;position: absolute;right:40px;bottom:40px"><small>Already registered? </small></mat-hint><br>
+          <a [routerLink]="['../login']" style="position: absolute;right:60px;bottom:20px;margin-top:-20px; color:rgb(34, 97, 221);font-size: 14px;">Login here</a>
+
+          <div class="form-group">
+            <button mat-raised-button type="submit">Register</button>
+          </div>
+        </form>
+      </div>
     </div>
-  
   </div>
-  </body>

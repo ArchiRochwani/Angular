@@ -1,0 +1,46 @@
+
+.menu-button {
+    margin-right: 24px;
+    min-width: 0;
+    padding: 0;
+    line-height: normal;
+
+}
+ .sidenav-container {
+    flex: 1;
+    color:#3f51b5;
+   
+} 
+.sidenav {
+    min-width: 20px;
+    flex:1;
+    height:100%;
+
+} 
+.sidenav a {
+    display: flex;
+    padding: 0px 24px;
+    width: 100%;
+    text-align: center;
+}
+.sidenav-container .sidenav a:hover:not(.active) {
+    color: rgb(42, 73, 228);
+}
+.mat-toolbar{
+ color:rgb(236, 238, 241);
+ background-color: rgb(61, 61, 236);
+}
+#logout{
+    float:right;
+    position: fixed;
+    right:50px;
+  } 
+  #logoutid{
+    float:right;
+    position: fixed;
+    right:120px;
+  } 
+  
+[hidden] {
+    display: none !important;
+  }

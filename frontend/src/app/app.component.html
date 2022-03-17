@@ -1,1 +1,26 @@
+<mat-sidenav-container class="sidenav-container" style="color:rgb(57, 57, 230);">
+  <mat-sidenav style="background-color: black;color:white" #sidenav autoFocus="true" mode="side" [(opened)]="isMenuOpen" [fixedInViewport]="true" class="sidenav" [hidden]="navbar">
+    <mat-icon class="l1" [hidden]=islogin style="position:relative;top:35px;">power_settings_new</mat-icon>
+    <a mat-button routerLink="/login" [hidden]="islogin" style="left:12px;">Login</a>
+    <mat-icon class="r1" [hidden]=isregister style="position:relative;top:35px;"> contact_mail</mat-icon>
+
+    <a mat-button routerLink="/register" [hidden]=isregister style="left:7px;">Register</a><br>
+</mat-sidenav>
+  <mat-sidenav-content>
+
+    <mat-toolbar style="color:rgb(239, 241, 245);background-color: rgb(61, 61, 236);">
+      <button mat-button class="menu-button" (click)="sidenav.toggle()">
+        <mat-icon>{{ isMenuOpen ? 'menu_open' : 'menu' }}</mat-icon>
+      </button>
+
+      <mat-icon class="r2" [hidden]=isregister> contact_mail</mat-icon>
+      <a mat-button class="r2" [hidden]=isregister routerLink="../register" (click)=hideRegister()>Register</a>
+      <mat-icon class="l2" [hidden]=islogin >power_settings_new</mat-icon>
+      <a mat-button class="l2" [hidden]=islogin routerLink="../login" (click)=hideLogin()>Login</a>
+      <mat-icon id="logoutid" [hidden]="logout">exit_to_app</mat-icon>
+      <a mat-button routerLink="../" id="logout" [hidden]="logout">LogOut</a>   
+    </mat-toolbar>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
 <router-outlet></router-outlet>
